@@ -12,6 +12,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'mf1-routes',
     loadChildren: () => import('mf1/Module').then(m => m.AppModule)
+  },
+  {
+    path: 'mf2-routes',
+    loadChildren: () => import('mf2/Module').then(m => m.AppModule)
   }
 ];
 

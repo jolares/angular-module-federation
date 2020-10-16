@@ -28,6 +28,7 @@ import { FormControl } from '@angular/forms';
           <li><a routerLink="/mf1-routes/feature-1">MF1-Feat-1 Component</a></li>
           <li><a routerLink="/mf1-routes/feature-2">MF1-Feat-2 Component</a></li>
           <li><a routerLink="/mf1-routes/feature-3-routes">MF1-Feat-3-SubModule Component</a></li>
+          <li><a routerLink="/mf2-routes">MF2-Feat-1 Component</a></li>
         </ul>
       </ng-template>
 
