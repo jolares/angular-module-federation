@@ -1,75 +1,109 @@
 # Angular Module Federation
 
-Please note, you **must** use **yarn** during the beta phase of CLI 11 b/c it allows to override dependencies to force the CLI into webpack 5.
+## [About Case Studies](CASE_STUDIES.md))
 
-# Installing Project Dependencies
+## Getting Started
+
+### 1 Installing Project Dependencies
 
 * To install node packages for the projects and schematics aplication, run
   `npm run setup:dev:all`
 
-# Building & Serving Projects
+  > **Note**: you **must** use **yarn** during the beta phase of angular cli 11 because it allows for overriding dependencies and force the cli to use Webpack 5.
+
+
+### 2 Building & Serving All Federation Projects
 
 * To build all micro-frontend projects, run `npm run build:all`
 * To serve all micro-frontend projects using the angular dev-server, run
   `npm run start:all`
-* To serve all micro-frontend projects's production bundles, run
-  `npm run start:prod:all`
 
-## Build & Serve Micro-Frontends in Isolation
+> Note: To build and serve all micro-frontend projects's production bundles, run:<br>
+>`npm run start:prod:all`
 
-* To build a specific micro-frontend app, use the following notation:
+
+### Building & Serve Micro-Frontend(s) in Isolation
+
+* To build a specific micro-frontend app, including the Shell App, run a command using this notation:
   `npm run build:${project-name}`
   * Examples:
     * To build the shell app, run `npm run build:shell`
     * To build micro-frontend-1, run `npm run build:mf1`
-    * ...etc.
+    * ...
 
 * To serve a specific micro-frontend app using the angular dev-server, use the following notation:
   `npm run serve:${project-name}`
   * Examples:
     * To build the shell app, run `npm run serve:shell`
     * To build micro-frontend-1 (remote 1), run `npm run serve:mf1`
-    * ...etc.
+    * ...
 
-* **Note:** when serving micro-frontends along the shell application, always make sure all other micro-frontends are served before `shell` is loaded in the browser.
+> **Note:** when serving any micro-frontend(s) along the shell application, always make sure all micro-frontend(s) are served before `shell` is loaded to the browser.
 
 
-## Scaffolding
+## 3 Project Scaffolding
 
-### Project Folder Structure
+Lets first get familiar with the federation's folder structure:
 
 ```
-root
+angular-module-federation/
   |- /projects
-  |  '- shell                      // Shell Micro-Frontend App (Host)
-  |     '- webpack.shell.config.js
+  |  '- shell                        // Shell MF App (Host)
+  |  '- webpack.shell.config.js
   |  '- mf1
-  |     '- webpack.mf1.config.js
+  |  '   '- webpack.mf1.config.js
   |  '- mf2
-  |     '- webpack.mf2.config.js
-  |  '- ...                        // Micro-Frontend Apps (Remotes)
+  |  '   '- webpack.mf2.config.js
+  |  '- mf{n}                        // Micro-frontend Apps (Remotes)
   |
 ```
 
-## Adding New Micro-Frontend Projects
+## Adding New Micro-Frontend Project
 
-* To create a new remote micro-frontend project, run:
-  `schematics:project a --name={PROJECT_NAME}`
+### Schematics
 
-## TODOs (Experiments)
+* To create a new [remote] micro-frontend, run:
+  `schematics schematics:project --name={PROJECT_NAME}`
 
-### TODO 1: Shared & Isolated Dependencies
 
-Shell uses shared Material
-MF1 uses shared Material
-MF2 uses its own Material
-MF2 uses Unique Webpack Object
+## About
+
+## Dependency Management
+
+Module Federation allows us to share libraries amogst micro-frontend applications that can be build and served in isolation, dodging the need to load the same library several times or having to implement an adhoc solution for this problem.
+
+
+### Case Study 1: MF2 Requires an Earlier Version of Angular Material
+
+This case study describes an instance in which a micro-frontend project, `mf2`, requires a different version of @angular/material
+from the one specified in package.json and used by other host and remote applications (i.e. shell and mf1). In industry, this may
+happen as a result of a company-wide dependency upgrade, and lack of capacity from `mf2` to meet such requirement at the time being, for whatever underlyin reason.
+
+By default, module federation defaults to loading the highest available version, and logs a warning message. However, if such version
+contains breaking changes, `mf2` will fail. Module Federation allows us to specify a configuration as follows to specify dependency
+requirements, and if not provided as specified in package.json or other earlier-loaded micro-frontends, it will provide its own at
+a working version.
+
+```
+ // mf2's webpack.config.js
+  ...
+  shared: [
+    ...,
+    "@angular/material": {
+      // optionally, this enables failure detection at build time, specifying that mf2 requires a strictly compatible version.
+      strictVersion: true,
+      // optionally, this specifies the working version range.
+      requiredVersion: ">=1.1.0 <3.0.0" //
+    }
+  ]
+```
 
 
 ### TODO 2: Shared Multibrowser Support Setup & Theming
 
 Can share
 Can have adhoc-alone config
+
 
 ### TODO 3: Navigation
 

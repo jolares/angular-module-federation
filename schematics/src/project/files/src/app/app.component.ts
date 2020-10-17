@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <h1>{{ title }} works!</h1>
+    <h1><%= classify(name) %> AppComponent</h1>
 
+    <p><%= classify(name) %> AppComponent router-outlet below:</p>
     <router-outlet></router-outlet>
   `
 })
 export class AppComponent {
-  title = '<%= classify(name) %>';
 }

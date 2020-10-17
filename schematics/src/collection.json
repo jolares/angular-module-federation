@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "project": {
-      "description": "A blank schematic.",
+      "description": "A new micro-frontend project.",
       "factory": "./project/index#project"
     }
   }
