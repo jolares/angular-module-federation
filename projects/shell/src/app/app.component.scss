@@ -1,5 +1,13 @@
 @import '../styles.scss';
 
+:root {
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+  @import '../assets/styles/material-theme.scss';
+
+  font-family: 'Roboto';
+  font-size: 16px;
+}
 
 .app-root {
   .sidenav-container {

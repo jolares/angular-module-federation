@@ -7,7 +7,7 @@ Module Federation provides valuable use cases when it comes to dependency sharin
 Module Federation allows us to share libraries amogst micro-frontend applications that can be build and served in isolation, dodging the need to load the same library several times or having to implement an adhoc solution for this problem.
 
 
-### Case Study 1: Version-Mismatch-Hell
+### Case Study 1: Escaping Version-Mismatch-Hell
 
 The case represents an instance in which a micro-frontend project, `mf2`, requires a different version of @angular/material from the one specified in package.json used by other host and remote micro-frontend applications (i.e. shell and mf1). In practice, this may
 occur as a result of a company-wide dependency upgrades, and the lack of capacity from a project like `mf2` to meet the new version requirements for the time being, regardless of what the underlying reason might be.
@@ -33,47 +33,44 @@ a working version.
 
 ## TODOs
 
-
-### TODO 2: Shared Multibrowser Support Setup & Theming
-
-Can share
-Can have adhoc-alone config
+### TODO: Shared Styles, Design Language System, & Theming
 
 
-### TODO 3: Navigation
+### TODO: Multi-Browser Support
+
+
+### TODO: Multi-Project & Within-Project Navigation
 
 Has standalone routing
 Has shared routing
 Has non-router navigation
 
-### TODO 4: Externals
 
-Serves onlu needed dependencies (skip the ones host has)
-Serves all depencies when host does not have them
+### TODO: Custom Elements
 
-### TODO 5: Dockerize
+Builds & Serves Custom Elements bundles
+Builds & Serves Angular Bundles
 
-Serves onlu needed dependencies (skip the ones host has)
-Serves all depencies when host does not have them
+### TODO: Containerize
+
+Dockerize & GCP-Ready
+
+### TODO: Production Server
 
 
-### TODO 6: Production Server
-
-Serves onlu needed dependencies (skip the ones host has)
-Serves all depencies when host does not have them
-
-### TODO 7: NgRx Store
+### TODO: NgRx Store
 
 MF1 has standalone store
 MF1 and Shell share Store
 
-### TODO 7: Setup Unit & E2E testing infrastructure
 
-has flexibility to use jest, karma, and both
-add component and class tests included in component schematics
+### Federated Unit & E2E Testing
 
-### TODO 8: Setup Internationalization
+each project has flexibility to use jest, karma, protractor, others, etc
+
+### TODO: Shared Internationalization
 
 All microfrontends have i18n and include schematics
 
-### TODO 9: Projects can be configured as CustomElements
+
+### TODO: Schematics

@@ -1,8 +1,12 @@
-:root {
-  @import url('https://fonts.googleapis.com/css?family=Roboto');
-  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-  @import './assets/styles/material-theme.scss';
 
-  font-family: 'Roboto';
-  font-size: 16px;
+.project-container {
+  border: 3px dashed red;
+  padding: 24px;
+  border-radius: 4px;
+}
+
+.component-container {
+  border: 2px dashed gray;
+  padding: 16px;
+  border-radius: 4px;
 }

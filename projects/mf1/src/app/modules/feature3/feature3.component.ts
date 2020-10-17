@@ -8,46 +8,13 @@ export interface Section {
 
 @Component({
   selector: 'app-feature3',
+  styleUrls: ['./feature3.component.scss'],
   template: `
     <style>
       @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
-      input[type=text] {
-          width: 100%;
-          max-width: 400px;
-          box-sizing: border-box;
-          border: none;
-          border-bottom: 2px solid silver;
-          font-size: 20px;
-          margin-bottom: 20px;
-          margin-top: 20px;
-      }
-
-      button {
-          border: 2px solid silver;
-          background-color: white;
-          font-size: 16px;
-          padding: 10px;
-          padding-left: 40px;
-          padding-right: 40px;
-          border-radius: 10px;
-          margin-bottom: 20px;
-          margin-top: 20px;
-          cursor: pointer;
-      }
-
-      button:active {
-          border-color: black;
-      }
-
-      #container {
-          border: 2px darkred dashed;
-          padding: 20px;
-      }
     </style>
 
-    <div id="container">
-
+    <div class="component-container">
       <div>
           <img src="../../../assets/angular.png" width="50">
       </div>
@@ -85,7 +52,6 @@ export interface Section {
       </div>
     </div>
   `,
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Feature3Component {

@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <h1>MF1 AppComponent</h1>
+    <div class="project-container">
+      <h1>MF1 AppComponent</h1>
 
-    <p>MF1 AppComponent router-outlet below:</p>
+      <p>MF1 AppComponent router-outlet below:</p>
 
-    <router-outlet></router-outlet>
-  `
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
-}
+export class AppComponent {}

@@ -10,7 +10,6 @@ import { Feature1Component } from './modules/feature1/feature1.component';
 import { APP_ROUTES } from './app.routes';
 
 
-
 @NgModule({
   imports: [
     BrowserModule,

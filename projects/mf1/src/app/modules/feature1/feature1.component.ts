@@ -3,15 +3,15 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
 @Component({
   selector: 'app-feature1',
   template: `
-    <div>
+    <div class="component-container">
       <img src="../../assets/angular.png" width="50">
+
+      <h1>MF1 Feature 1 Component!</h1>
+
+      <p>
+        <a routerLink="/feature-2">Go to Feat-2</a>
+      </p>
     </div>
-
-    <h1>MF1 Feature 1 Component!</h1>
-
-    <p>
-      <a routerLink="/feature-2">Go to Feat-2</a>
-    </p>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

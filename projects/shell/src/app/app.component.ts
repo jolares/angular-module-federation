@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef, ɵrenderComponent as renderComponent, Inject, Injector, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, ɵrenderComponent as renderComponent, Inject, Injector, ComponentFactoryResolver, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <div class="app-root">
+    <div class="app-root project-container">
       <mat-sidenav-container class="sidenav-container">
         <mat-sidenav #sidenav mode="over">
           <ng-container *ngTemplateOutlet="sideNavContent"></ng-container>
@@ -38,7 +38,8 @@ import { FormControl } from '@angular/forms';
       </ng-template>
     </div>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None, // only for AppComponent
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'shell';
