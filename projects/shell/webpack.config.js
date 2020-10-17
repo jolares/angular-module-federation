@@ -20,7 +20,11 @@ module.exports = {
           "@angular/core",
           "@angular/common",
           "@angular/router",
-          "@angular/material",
+          {
+            "@angular/material": {
+              singleton: true
+            }
+          }
           // Other Dependencies to be Shared...
         ]
     })
